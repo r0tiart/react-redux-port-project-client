@@ -7,3 +7,4 @@ export default function usersReducer(state = {loading: false,  users:[]}, action
     default:
       return state;
   }
+}
