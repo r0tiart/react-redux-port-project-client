@@ -5,6 +5,8 @@ import {
 } from 'react-router-dom';
 
 import NavBar  from './components/NavBar';
+import UsersPage from './containers/UsersPage';
+
 
 export default class App extends Component {
 
@@ -13,6 +15,8 @@ export default class App extends Component {
       <Router>
         <div className="App">
           <NavBar />
+          <Route exact path="/" render={() => <div>Home</div>} />
+          <Route path='/users' component={UsersPage}/>
         </div>
       </Router>
     );
