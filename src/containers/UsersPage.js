@@ -9,9 +9,8 @@ const UsersPage = ({ match, users }) =>
   </div>;
 
 const mapStateToProps = (state) => {
-  debugger;
   return {
-    users: state.users
+    users: state.users.users
   };
 }
 

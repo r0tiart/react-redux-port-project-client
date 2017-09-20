@@ -3,12 +3,20 @@ import {
   BrowserRouter as Router, 
   Route 
 } from 'react-router-dom';
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import NavBar  from './components/NavBar';
 import UsersPage from './containers/UsersPage';
+import * as actions from './actions/userActions.js'
 
 
-export default class App extends Component {
+
+export class App extends Component {
+
+  componentDidMount() {
+      this.props.actions.fetchUsers()
+  }
 
   render() {
     return (
@@ -23,4 +31,15 @@ export default class App extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  console.log('in map state to props')
+  return {users: state.users.users}
+}
+
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators(actions, dispatch)}
+}
+
+const WrapperApp = connect(mapStateToProps, mapDispatchToProps)(App)
+export default WrapperApp;
 

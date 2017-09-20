@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 import rootReducer from './reducers/index'
-import  App  from './App'
+import  WrapperApp  from './App'
 
  const store = createStore(
     rootReducer,
@@ -16,7 +16,7 @@ import  App  from './App'
 
 	ReactDOM.render(
 	<Provider store={store}>
-   		<App />
+   		<WrapperApp />
   	</Provider>,
     document.getElementById('root')
 );

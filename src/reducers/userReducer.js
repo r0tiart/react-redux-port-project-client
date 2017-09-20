@@ -3,6 +3,7 @@ export default function usersReducer(state = {loading: false,  users:[]}, action
   	case 'LOADING_USERS':
   	  return { loading: true, users: [] };
     case 'FETCH_USERS':
+    debugger;
       return { loading: false, users: action.payload };
     default:
       return state;
