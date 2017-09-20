@@ -1,11 +1,19 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import UsersList from './UsersList';
+import { Route, Switch } from 'react-router-dom';
+import UserShow from './UserShow'
+import UsersList from '../components/UsersList';
 
 const UsersPage = ({ match, users }) => 
   <div>
-    <UsersList users={users} />
+    <Switch>
+      
+      <Route path={`${match.url}/:userId`} component={UserShow}/>
+      <Route exact path={match.url} render={() => (
+        <UsersList users={users} />
+      )}/>
+
+    </Switch>
   </div>;
 
 const mapStateToProps = (state) => {
