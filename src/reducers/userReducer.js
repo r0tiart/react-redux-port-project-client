@@ -5,7 +5,7 @@ export default function usersReducer(state = {loading: false,  users:[], user: '
     case 'FETCH_USERS':
       return Object.assign({}, state, {loading: false, users: action.payload.users});
     case 'LOGIN':
-      return Object.assign({}, state, {loading: false, user: action.payload.user});
+      return Object.assign({}, state, {loading: false, user: action.payload});
     default:
       return state;
   }

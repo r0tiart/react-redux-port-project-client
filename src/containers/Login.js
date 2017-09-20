@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { login } from '../actions/userActions';
+import { connect } from 'react-redux';
+import { loginUser }  from '../actions/userActions';
+import { bindActionCreators } from 'redux'
 
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       username: '',
@@ -14,7 +16,9 @@ class Login extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.login(this.state);
+    const { history } = this.props
+    this.props.actions.loginUser(this.state);
+    history.push('/')
   }
 
   handleOnChange = event => {
@@ -34,11 +38,11 @@ class Login extends Component {
 
       <div>
         <h4>Login!</h4>
-        <form style={{ marginTop: '16px' }} onSubmit={this.handleOnSubmit}>
+        <form style={{ marginTop: '16px' }} onSubmit={ this.handleOnSubmit }>
           <label>Username</label>
-          <input  type="text" placeholder="Username" onChange={this.handleOnChange} />
+          <input  type="text" placeholder="Username" onChange={ this.handleOnChange } />
           <label>Password</label>
-          <input type="password" onChange={this.handleOnChange} />
+          <input type="password" onChange={ this.handleOnChange } />
           <input type="submit" value="Login" />
         </form>
       </div>
@@ -46,4 +50,8 @@ class Login extends Component {
   )}
 };
 
-export default Login;
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators({ loginUser }, dispatch)}
+}
+
+export default connect(null, mapDispatchToProps)(Login);
