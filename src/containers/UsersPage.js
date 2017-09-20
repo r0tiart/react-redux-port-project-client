@@ -7,7 +7,6 @@ import UsersList from '../components/UsersList';
 const UsersPage = ({ match, users }) => 
   <div>
     <Switch>
-      
       <Route path={`${match.url}/:userId`} component={WrapperUserShow}/>
       <Route exact path={match.url} render={() => (
         <UsersList users={users} />

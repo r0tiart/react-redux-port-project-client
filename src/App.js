@@ -8,6 +8,7 @@ import { bindActionCreators } from 'redux'
 
 import NavBar  from './components/NavBar';
 import UsersPage from './containers/UsersPage';
+import Login from './containers/Login'
 import * as actions from './actions/userActions.js'
 
 
@@ -24,6 +25,8 @@ export class App extends Component {
         <div className="App">
           <NavBar />
           <Route exact path="/" render={() => <div>Home</div>} />
+          <Route path=`/login` component={Login} />
+
           <Route path='/users' component={UsersPage}/>
         </div>
       </Router>
