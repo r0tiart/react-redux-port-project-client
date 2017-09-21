@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createUser }  from '../actions/userActions';
 import { bindActionCreators } from 'redux'
-import { Route, Redirect } from 'react-router'
 import FileBase64 from 'react-file-base64';
 
 
@@ -30,6 +29,7 @@ class SignUp extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     this.props.actions.createUser(this.state);
+    this.props.history.push('/users')
   }
 
   handleOnChange = event => {

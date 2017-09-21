@@ -25,7 +25,7 @@ export function createUser(data){
       body: JSON.stringify({ "user": new_data })
    })
       .then(response => response.json())
-      .then(user => dispatch({ type: 'CREATE_USER', payload: user }));
+      .then(user => dispatch({ type: 'LOGIN', payload: user }));
   };
 }
 

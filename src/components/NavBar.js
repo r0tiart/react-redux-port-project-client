@@ -16,6 +16,12 @@ const NavBar = props => {
       >
         Users
       </NavLink>
+      <NavLink 
+        style={{ marginRight: '10px' }} 
+        to="/users/profile"
+      >
+        Profile
+      </NavLink>
     </div>
   );
 }

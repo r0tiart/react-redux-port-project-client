@@ -32,6 +32,7 @@ export class App extends Component {
           </div>
         </Router>
       );
+
     } else {
       return(
         <Router>

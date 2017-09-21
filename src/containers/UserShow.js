@@ -11,7 +11,7 @@ const UserShow = ({ user }) =>
 
 function mapStateToProps(state, ownProps) {
   const user = state.users.users.find(user => user.id == ownProps.match.params.userId)
- 
+ 	
   if (user) {
     return { user }
   } else {
@@ -19,5 +19,4 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-const WrapperUserShow = connect(mapStateToProps)(UserShow)
-export default WrapperUserShow;
+export default connect(mapStateToProps)(UserShow);
