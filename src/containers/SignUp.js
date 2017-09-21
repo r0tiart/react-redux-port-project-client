@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import { loginUser }  from '../actions/userActions';
 import { bindActionCreators } from 'redux'
 import { Route, Redirect } from 'react-router'
-import { Link } from 'react-router-dom';
 
 
-class Login extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
 
@@ -36,7 +35,7 @@ class Login extends Component {
   render(){
     return(
       <div>
-        <h4>Login!</h4>
+        <h4>Create a New User</h4>
         <form style={{ marginTop: '16px' }} onSubmit={ this.handleOnSubmit.bind(this) }>
           <label>Username</label>
           <input  type="text" placeholder="Username" onChange={ this.handleOnChange.bind(this) } />
@@ -53,4 +52,4 @@ function mapDispatchToProps(dispatch) {
   return {actions: bindActionCreators({ loginUser }, dispatch)}
 }
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(SignUp);

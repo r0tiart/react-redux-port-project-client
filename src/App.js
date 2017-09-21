@@ -5,11 +5,12 @@ import {
 } from 'react-router-dom';
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
-
+import SignUp from './containers/SignUp'
 import NavBar  from './components/NavBar';
 import UsersPage from './containers/UsersPage';
 import Login from './containers/Login'
 import * as actions from './actions/userActions.js'
+import { Link } from 'react-router-dom';
 
 
 
@@ -35,7 +36,15 @@ export class App extends Component {
       return(
         <Router>
           <div>
-            <Login />
+            <h1>Welcome!</h1>
+            <div>
+              <p>Please login or sign up </p>
+              <Link style={{ marginRight: '12px' }} to={`/login`}>Login</Link> 
+              <Link style={{ marginRight: '12px' }} to={`/signup`}>Signup</Link> 
+            </div>
+
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={SignUp} />
           </div>
         </Router>
       );
