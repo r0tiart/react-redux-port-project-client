@@ -37,6 +37,10 @@ export function loginUser(data){
           'Content-Type': 'application/json'
       },
       body: JSON.stringify({"user": data})
-    }).then(response => response.json()).then(user => dispatch({ type: 'LOGIN', payload: user}))
-  }; 
+    }).then(response => response.json()
+     ).then(user => dispatch({ type: 'LOGIN', payload: user})
+     ).catch(function(error) {
+      window.alert('Username or password is incorrect. Please try again.');
+    });
+  }
 };
