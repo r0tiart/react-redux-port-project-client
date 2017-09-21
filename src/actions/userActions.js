@@ -25,7 +25,10 @@ export function createUser(data){
       body: JSON.stringify({ "user": new_data })
    })
       .then(response => response.json())
-      .then(user => dispatch({ type: 'LOGIN', payload: user }));
+      .then(user => dispatch({ type: 'LOGIN', payload: user }))
+      .catch(function(error) {
+      window.alert('Unable to create user; no fields can be blank and username and email must be unique. Please try again.');
+    });
   };
 }
 

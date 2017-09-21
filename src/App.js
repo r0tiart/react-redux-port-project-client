@@ -4,19 +4,18 @@ import {
   Route 
 } from 'react-router-dom';
 import {connect} from 'react-redux'
-import { bindActionCreators } from 'redux'
 import SignUp from './containers/SignUp'
 import NavBar  from './components/NavBar';
 import UsersPage from './containers/UsersPage';
 import Login from './containers/Login'
-import * as actions from './actions/userActions.js'
 import { Link } from 'react-router-dom';
-
+import * as actions from './actions/userActions.js'
+import { bindActionCreators } from 'redux'
 
 
 export class App extends Component {
 
-  componentDidMount() {
+  componentDidUpdate() {
       this.props.actions.fetchUsers()
   }
 
