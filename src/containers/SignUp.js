@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loginUser }  from '../actions/userActions';
+import { createUser }  from '../actions/userActions';
 import { bindActionCreators } from 'redux'
 import { Route, Redirect } from 'react-router'
+import FileBase64 from 'react-file-base64';
 
 
 class SignUp extends Component {
@@ -12,36 +13,52 @@ class SignUp extends Component {
     this.state = {
       username: '',
       password: '',
+      email: '',
+      avatar: ''
     };
+
+    this.onDrop = this.onDrop.bind(this);
+
   }
+
+    onDrop(picture) {
+        this.setState({
+            avatar: picture,
+        });
+    }
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.actions.loginUser(this.state);
+    this.props.actions.createUser(this.state);
   }
 
   handleOnChange = event => {
-    if ( event.target.type === 'password' )
-      {   this.setState({
-            password: event.target.value
-          });
-      }else if( event.target.type === 'text' ){
-        this.setState({
-            username: event.target.value
-        });
-      }
+
+      this.setState({
+        [event.target.className]: event.target.value        
+      });
+      
   }
 
   render(){
     return(
       <div>
         <h4>Create a New User</h4>
+        <div>
+          <h5>Upload Avatar</h5>
+          <FileBase64
+            multiple={ false }
+            onDone={ this.onDrop.bind(this) } />
+        </div>
         <form style={{ marginTop: '16px' }} onSubmit={ this.handleOnSubmit.bind(this) }>
           <label>Username</label>
-          <input  type="text" placeholder="Username" onChange={ this.handleOnChange.bind(this) } />
+          <input  type="text" className="username" placeholder="Username" onChange={ this.handleOnChange.bind(this) } />
+          <label>Email</label>
+          <input  type="text" className="email" placeholder="user@email.com" onChange={ this.handleOnChange.bind(this) } />
           <label>Password</label>
-          <input type="password" onChange={ this.handleOnChange.bind(this) } />
-          <input type="submit" value="Login" />
+          <input type="password" className="password" onChange={ this.handleOnChange.bind(this) } />
+
+          <input type="submit" value="Create User" />
         </form>
       </div>
   
@@ -49,7 +66,7 @@ class SignUp extends Component {
 };
 
 function mapDispatchToProps(dispatch) {
-  return {actions: bindActionCreators({ loginUser }, dispatch)}
+  return {actions: bindActionCreators({ createUser }, dispatch)}
 }
 
 export default connect(null, mapDispatchToProps)(SignUp);

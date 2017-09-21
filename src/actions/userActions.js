@@ -13,18 +13,19 @@ export function fetchUsers() {
   };
 };
 
-export function fetchUser(id){
+export function createUser(data){
+  var new_data = Object.assign({}, data, {avatar: data.avatar.base64})
   return (dispatch) => {
-    return fetch(`http://localhost:4000/user/${id}`,{
-      method: 'GET',
+    return fetch(`http://localhost:4000/users`,{
+      method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      }
-      // body: JSON.stringify({ data })
+      },
+      body: JSON.stringify({ "user": new_data })
    })
       .then(response => response.json())
-      .then(user => dispatch({ type: 'FETCH_USER', payload: user }));
+      .then(user => dispatch({ type: 'CREATE_USER', payload: user }));
   };
 }
 
