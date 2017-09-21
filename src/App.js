@@ -19,27 +19,35 @@ export class App extends Component {
       this.props.actions.fetchUsers()
   }
 
+
   render() {
-    return (
-      <Router>
-        <div className="App">
-          <NavBar />
-          <Route exact path="/" render={() => <div>Home</div>} />
-          <Route path='/login' component={Login} />
+    if(this.props.signedin){
+      return (
+        <Router>
+          <div className="App">
+            <NavBar />
+            <Route exact path="/" render={() => <div>Home</div>} />
+            <Route path='/users' component={UsersPage}/>
+          </div>
+        </Router>
+      );
+    } else {
+      return(
+        <Router>
+          <div>
+            <Login />
+          </div>
+        </Router>
+      );
+    };  
+  };
+};
 
-          <Route path='/users' component={UsersPage}/>
-        </div>
-      </Router>
-    );
-  }
+const mapStateToProps = (state) => {
+  return { signedin: state.users.loggedIn }
 }
 
-function mapStateToProps(state) {
-  console.log('in map state to props')
-  return {users: state.users.users}
-}
-
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {actions: bindActionCreators(actions, dispatch)}
 }
 

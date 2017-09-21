@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser }  from '../actions/userActions';
 import { bindActionCreators } from 'redux'
+import { Route, Redirect } from 'react-router'
 
 
 class Login extends Component {
@@ -16,9 +17,7 @@ class Login extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const { history } = this.props
     this.props.actions.loginUser(this.state);
-    history.push('/')
   }
 
   handleOnChange = event => {
@@ -35,14 +34,13 @@ class Login extends Component {
 
   render(){
     return(
-
       <div>
         <h4>Login!</h4>
-        <form style={{ marginTop: '16px' }} onSubmit={ this.handleOnSubmit }>
+        <form style={{ marginTop: '16px' }} onSubmit={ this.handleOnSubmit.bind(this) }>
           <label>Username</label>
-          <input  type="text" placeholder="Username" onChange={ this.handleOnChange } />
+          <input  type="text" placeholder="Username" onChange={ this.handleOnChange.bind(this) } />
           <label>Password</label>
-          <input type="password" onChange={ this.handleOnChange } />
+          <input type="password" onChange={ this.handleOnChange.bind(this) } />
           <input type="submit" value="Login" />
         </form>
       </div>
