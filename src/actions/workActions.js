@@ -29,3 +29,23 @@ export function fetchUserWorks(id){
     );
   }
 };
+
+
+export function updateWork(data , id){
+  var new_data = Object.assign({}, data, {avatar: data.avatar.base64})
+  return (dispatch) => {
+    return fetch(`http://localhost:4000/works/${id}`,{
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ "work": new_data })
+   })
+      .then(response => response.json())
+      .then(user => dispatch({ type: 'USER_WORK', payload: user }))
+      .catch(function(error) {
+      window.alert('Unable to create user; no fields can be blank and username and email must be unique. Please try again.');
+    });
+  };
+};
