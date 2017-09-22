@@ -32,7 +32,14 @@ export function fetchUserWorks(id){
 
 
 export function updateWork(data , id){
-  var new_data = Object.assign({}, data, {avatar: data.avatar.base64})
+
+  if ( data.avatar === '' ){
+    delete data["avatar"]
+    var new_data = data
+    
+  } else {
+    var new_data = Object.assign({}, data, {avatar: data.avatar.base64})
+  };
   return (dispatch) => {
     return fetch(`http://localhost:4000/works/${id}`,{
       method: 'POST',

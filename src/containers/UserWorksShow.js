@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import WorksList from '../components/WorksList'
 import FileBase64 from 'react-file-base64';
 import { updateWork }  from '../actions/workActions';
+import { bindActionCreators } from 'redux';
 
 
 class UserWorksShow extends Component {
@@ -10,9 +11,7 @@ class UserWorksShow extends Component {
     	super(props);
 	    this.state = {
 	      title: this.props.work.title,
-	      category_id: this.props.work.category_id,
 	      description: this.props.work.description,
-	      avatar_url: this.props.work.avatar,
 	      avatar: ''
 	    };
 
@@ -29,7 +28,7 @@ class UserWorksShow extends Component {
   	handleOnSubmit = event => {
 		event.preventDefault();
 		debugger;
-		this.props.actions.createUser(this.state);
+		this.props.actions.updateWork(this.state, this.props.work.id);
 		this.props.history.push('/profile')
 	}
 
@@ -61,7 +60,7 @@ class UserWorksShow extends Component {
 
         	<form style={{ marginTop: '16px' }} id="updateUserWork" onSubmit={ this.handleOnSubmit.bind(this) }>
 	          <label>Title</label>
-	          <input  type="text" className="title" value={work.title} onChange={ this.handleOnChange.bind(this) } />
+	          <input  type="text" className="title" placeholder={work.title} onChange={ this.handleOnChange.bind(this) } />
 	          <label>Descriptin</label>	      
 
 	          <input type="submit" value="Update Work" />
@@ -86,4 +85,8 @@ function mapStateToProps(state, ownProps) {
   };
 };
 
-export default connect(mapStateToProps, { updateWork })(UserWorksShow);
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators({ updateWork }, dispatch)};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserWorksShow);
