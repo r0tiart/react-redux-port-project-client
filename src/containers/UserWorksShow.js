@@ -61,7 +61,7 @@ class UserWorksShow extends Component {
         	<form style={{ marginTop: '16px' }} id="updateUserWork" onSubmit={ this.handleOnSubmit.bind(this) }>
 	          <label>Title</label>
 	          <input  type="text" className="title" placeholder={work.title} onChange={ this.handleOnChange.bind(this) } />
-	          <label>Descriptin</label>	      
+	          <label>Description</label>	      
 
 	          <input type="submit" value="Update Work" />
         	</form>
