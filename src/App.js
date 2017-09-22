@@ -18,6 +18,7 @@ export class App extends Component {
 
   componentDidUpdate() {
       this.props.actions.fetchUsers()
+      this.props.actions.fetchWorks()
   }
 
 
