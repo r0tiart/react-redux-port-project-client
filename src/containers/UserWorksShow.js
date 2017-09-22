@@ -9,9 +9,9 @@ class UserWorksShow extends Component {
     	super(props);
 
 	    this.state = {
-	      username: '',
-	      password: '',
-	      email: '',
+	      title: '',
+	      category: '',
+	      description: '',
 	      avatar: ''
 	    };
 
@@ -24,6 +24,18 @@ class UserWorksShow extends Component {
             avatar: picture,
         });
     }
+
+  	handleOnSubmit = event => {
+		event.preventDefault();
+		this.props.actions.createUser(this.state);
+		this.props.history.push('/users')
+	}
+
+  	handleOnChange = event => {
+      this.setState({
+        [event.target.className]: event.target.value        
+      });
+  	};
 
 
 	render(){
@@ -38,11 +50,21 @@ class UserWorksShow extends Component {
     		<span>Category: { work.category } </span>
 
     		<div>
-	          <h5>Upload Avatar</h5>
+	          <h5>Upload Image</h5>
 	          <FileBase64
 	            multiple={ false }
 	            onDone={ this.onDrop.bind(this) } />
         	</div>
+
+        	<form style={{ marginTop: '16px' }} onSubmit={ this.handleOnSubmit.bind(this) }>
+	          <label>Title</label>
+	          <input  type="text" className="title" placeholder={work.title} onChange={ this.handleOnChange.bind(this) } />
+	          <label>Descriptin</label>
+	          <input  type="text" className="description" placeholder={work.description} onChange={ this.handleOnChange.bind(this) } />
+	      
+
+	          <input type="submit" value="Update Work" />
+        	</form>
 		  </div>	
 		);
 	};
