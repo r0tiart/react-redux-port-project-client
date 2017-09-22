@@ -22,6 +22,12 @@ const NavBar = props => {
       >
         Profile
       </NavLink>
+      <NavLink 
+        style={{ marginRight: '10px' }} 
+        to="/works"
+      >
+        Works
+      </NavLink>
     </div>
   );
 }
