@@ -9,7 +9,8 @@ import NavBar  from './components/NavBar';
 import UsersPage from './containers/UsersPage';
 import Login from './containers/Login'
 import { Link } from 'react-router-dom';
-import * as actions from './actions/userActions.js'
+import * as userActions from './actions/userActions.js'
+import * as workActions from './actions/workActions.js'
 import { bindActionCreators } from 'redux'
 
 
@@ -57,7 +58,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {actions: bindActionCreators(actions, dispatch)}
+  return {actions: bindActionCreators({...userActions, ...workActions}, dispatch)}
 }
 
 const WrapperApp = connect(mapStateToProps, mapDispatchToProps)(App)
