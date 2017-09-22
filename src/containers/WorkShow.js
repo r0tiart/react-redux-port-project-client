@@ -6,6 +6,9 @@ import UsersList from '../components/UsersList'
 const WorkShow = ({ work, user }) =>
   <div>
     <h3>Title: { work.title }</h3>
+
+    <img src={ work.avatar_full_url } alt='Work avatar' /><br/>
+
     <div>
     	By: < UsersList users={user}/>
     </div>

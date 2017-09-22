@@ -27,9 +27,8 @@ class UserWorksShow extends Component {
 
   	handleOnSubmit = event => {
 		event.preventDefault();
-		debugger;
 		this.props.actions.updateWork(this.state, this.props.work.id);
-		this.props.history.push('/profile')
+		this.props.history.push('/works')
 	}
 
 	handleOnChange = event => {
@@ -42,7 +41,6 @@ class UserWorksShow extends Component {
 
 	render(){
 		const { user, work } = this.props;
-
 		return(
 		  <div>
 		    <h3>Username: { user.username }</h3>
@@ -50,6 +48,8 @@ class UserWorksShow extends Component {
 
    			<p>Description: { work.description } </p>
     		<span>Category: { work.category } </span>
+
+        <img src={ work.avatar_full_url } alt='Work avatar' /><br/>
 
     		<div>
 	          <h5>Upload Image</h5>

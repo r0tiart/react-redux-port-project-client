@@ -2,7 +2,6 @@ import React from 'react';
 import WorksList from './WorksList'
 
 const UserProfile = ({ user, works }) => {
-
   return (
     <div>
     <h1>{user.username}'s Profile Page</h1>

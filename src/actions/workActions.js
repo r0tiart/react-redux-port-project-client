@@ -51,6 +51,6 @@ export function updateWork(data , id){
       body: JSON.stringify({ "work": new_data })
    })
       .then(response => response.json())
-      .then(user => dispatch({ type: 'USER_WORK', payload: user }))
+      .then( work => dispatch( { type: 'UPDATE_WORK', payload: work }))
   }
 };
