@@ -26,7 +26,7 @@ class Login extends Component {
     this.setState({
         [event.target.className]: event.target.value        
     });
-    
+
   };
 
   render(){

@@ -17,11 +17,15 @@ import { bindActionCreators } from 'redux';
 
 export class App extends Component {
 
-  componentDidUpdate() {
-      this.props.actions.fetchUsers();
-      this.props.actions.fetchWorks();
+  componentWillUpdate(nextProps) {
+     this.props.actions.fetchUsers();
+     this.props.actions.fetchWorks();
+     this.props.actions.fetchUserWorks(nextProps.session_id)
   };
 
+  componentDidUpdate(){
+    
+  }
 
   render() {
     if(this.props.signedin){
@@ -52,12 +56,12 @@ export class App extends Component {
           </div>
         </Router>
       );
-    };  
+    }
   };
 };
 
 const mapStateToProps = (state) => {
-  return { signedin: state.users.loggedIn };
+  return { signedin: state.users.loggedIn, session_id: state.users.sessionId };
 };
 
 const mapDispatchToProps = (dispatch) => {
