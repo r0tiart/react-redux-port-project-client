@@ -9,7 +9,7 @@ const UserProfile = ({ user, works }) => {
 	<img src={user.full_url} alt='user avatar' /><br/>
 	<span>Email: {user.email}</span>
 	<h4>Works</h4>
-	< WorksList works={works} />
+	< WorksList works={works} id={user.id} />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import UserShow  from './UserShow'
 import UsersList from '../components/UsersList';
 import UserProfile from '../components/UserProfile'
+import UserWorksShow from './UserWorksShow'
 
 class UsersPage extends Component {
 
@@ -19,7 +20,11 @@ class UsersPage extends Component {
           <Route exact path={`${match.url}/profile`} render={() => (
             <UserProfile user={user} works={userWorks} />
           )}/>
+
+          <Route path={`${match.url}/:userId/works/:workId`} component={UserWorksShow} />
+
           <Route path={`${match.url}/:userId`} component={UserShow} />
+
           <Route exact path={match.url} render={() => (
             <UsersList users={users}  />
           )}/>
