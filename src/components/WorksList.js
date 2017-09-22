@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const WorksLists = ({ works }) => {
 
   const renderWorks = works.map(work => 
-  	<div>
-   		 <Link style={{ marginRight: '12px' }} key={work.id} to={ `/works/${ work.id }` }>{ work.title }</Link>
+  	<div key={work.id}>
+   		 <Link style={{ marginRight: '12px' }}  to={ `/works/${ work.id }` }>{ work.title }</Link>
    	</div>
      );
   

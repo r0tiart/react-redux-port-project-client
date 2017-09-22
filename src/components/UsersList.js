@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const UsersList = ({ users }) => {
   const renderUsers = users.map(user => 
-  <div>
-    <Link style={{ marginRight: '12px' }} key={ user.id } to={ `/users/${ user.id }` }>{ user.username }</Link>
+  <div key={ user.id }>
+    <Link style={{ marginRight: '12px' }}  to={ `/users/${ user.id }` }>{ user.username }</Link>
   </div>
   );
   
