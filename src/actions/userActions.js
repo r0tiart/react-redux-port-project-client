@@ -9,7 +9,8 @@ export function fetchUsers() {
       // body: JSON.stringify({ data })
    })
       .then(response => response.json())
-      .then(users => dispatch({ type: 'FETCH_USERS', payload: users }));
+      .then(users => dispatch({ type: 'FETCH_USERS', payload: users })
+    );
   };
 };
 
@@ -30,7 +31,7 @@ export function createUser(data){
       window.alert('Unable to create user; no fields can be blank and username and email must be unique. Please try again.');
     });
   };
-}
+};
 
 export function loginUser(data){
   return(dispatch) => {
@@ -46,5 +47,5 @@ export function loginUser(data){
      ).catch(function(error) {
       window.alert('Username or password is incorrect. Please try again.');
     });
-  }
+  };
 };

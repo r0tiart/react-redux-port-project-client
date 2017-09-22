@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser }  from '../actions/userActions';
-import { bindActionCreators } from 'redux'
+import { bindActionCreators } from 'redux';
 
 
 class Login extends Component {
@@ -12,26 +12,22 @@ class Login extends Component {
       username: '',
       password: '',
     };
-  }
+  };
 
   handleOnSubmit = event => {
 
     event.preventDefault();
     this.props.actions.loginUser(this.state);
-    this.props.history.push('/users')
-  }
+    this.props.history.push('/users');
+  };
 
   handleOnChange = event => {
-    if ( event.target.type === 'password' )
-      {   this.setState({
-            password: event.target.value
-          });
-      }else if( event.target.type === 'text' ){
-        this.setState({
-            username: event.target.value
-        });
-      }
-  }
+
+    this.setState({
+        [event.target.className]: event.target.value        
+    });
+    
+  };
 
   render(){
     return(
@@ -39,9 +35,9 @@ class Login extends Component {
         <h4>Login!</h4>
         <form style={{ marginTop: '16px' }} onSubmit={ this.handleOnSubmit.bind(this) }>
           <label>Username</label>
-          <input  type="text" placeholder="Username" onChange={ this.handleOnChange.bind(this) } />
+          <input  type="text" className="username" placeholder="Username" onChange={ this.handleOnChange.bind(this) } />
           <label>Password</label>
-          <input type="password" onChange={ this.handleOnChange.bind(this) } />
+          <input type="password" className="password" onChange={ this.handleOnChange.bind(this) } />
           <input type="submit" value="Login" />
         </form>
       </div>

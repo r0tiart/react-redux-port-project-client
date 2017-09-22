@@ -18,9 +18,9 @@ import { bindActionCreators } from 'redux';
 export class App extends Component {
 
   componentDidUpdate() {
-      this.props.actions.fetchUsers()
-      this.props.actions.fetchWorks()
-  }
+      this.props.actions.fetchUsers();
+      this.props.actions.fetchWorks();
+  };
 
 
   render() {
@@ -57,13 +57,13 @@ export class App extends Component {
 };
 
 const mapStateToProps = (state) => {
-  return { signedin: state.users.loggedIn }
-}
+  return { signedin: state.users.loggedIn };
+};
 
 const mapDispatchToProps = (dispatch) => {
-  return {actions: bindActionCreators({...userActions, ...workActions}, dispatch)}
-}
+  return {actions: bindActionCreators({...userActions, ...workActions}, dispatch)};
+};
 
-const WrapperApp = connect(mapStateToProps, mapDispatchToProps)(App)
+const WrapperApp = connect(mapStateToProps, mapDispatchToProps)(App);
 export default WrapperApp;
 

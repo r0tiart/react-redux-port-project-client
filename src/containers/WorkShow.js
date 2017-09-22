@@ -4,8 +4,11 @@ import {connect} from 'react-redux';
 
 const WorkShow = ({ work }) =>
   <div>
-    <h3>Title: {work.title}</h3>
-  </div>
+    <h3>Title: { work.title }</h3>
+    <p>Descriptin: { work.description } </p>
+    <span>Category: { work.category } </span>
+
+  </div>;
 
 
 
@@ -16,7 +19,7 @@ function mapStateToProps(state, ownProps) {
     return { work }
   } else {
     return { work: {} }
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(WorkShow);

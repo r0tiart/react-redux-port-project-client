@@ -23,6 +23,6 @@ const mapStateToProps = (state) => {
     users: state.users.users,
     user: state.users.user
   };
-}
+};
 
 export default connect(mapStateToProps)(UsersPage);

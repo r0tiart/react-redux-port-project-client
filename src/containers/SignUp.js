@@ -62,11 +62,11 @@ class SignUp extends Component {
         </form>
       </div>
   
-  )}
+  )};
 };
 
 function mapDispatchToProps(dispatch) {
-  return {actions: bindActionCreators({ createUser }, dispatch)}
-}
+  return {actions: bindActionCreators({ createUser }, dispatch)};
+};
 
 export default connect(null, mapDispatchToProps)(SignUp);

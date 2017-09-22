@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 
 const UserShow = ({ user }) =>
   <div>
-    <h3>Username: {user.username}</h3>
-  </div>
+    <h3>Username: { user.username }</h3>
+  </div>;
 
 
 
@@ -16,7 +16,7 @@ function mapStateToProps(state, ownProps) {
     return { user }
   } else {
     return { user: {} }
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(UserShow);

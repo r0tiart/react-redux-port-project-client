@@ -9,6 +9,7 @@ export function fetchWorks() {
       // body: JSON.stringify({ data })
    })
       .then(response => response.json())
-      .then(works => dispatch({ type: 'FETCH_WORKS', payload: works }));
+      .then(works => dispatch({ type: 'FETCH_WORKS', payload: works })
+    );
   };
 };

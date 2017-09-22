@@ -30,6 +30,6 @@ const NavBar = props => {
       </NavLink>
     </div>
   );
-}
+};
 
 export default NavBar;
