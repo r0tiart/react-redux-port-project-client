@@ -13,8 +13,8 @@ const WorksPage = ({ match, works, work }) =>
 
 const mapStateToProps = (state) => {
   return {
-    works: state.works,
-    work: state.work
+    works: state.works.works,
+    work: state.works.work
   };
 }
 
