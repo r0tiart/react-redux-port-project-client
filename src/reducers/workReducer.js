@@ -14,6 +14,9 @@ export default function worksReducer(state = { loading: false, works: [], work: 
       state.userWorks[user_works_index] = action.payload
 
       return state;
+
+    case 'CREATE_WORK':
+      debugger;
     default:
       return state;
   }

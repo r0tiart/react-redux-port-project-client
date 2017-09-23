@@ -30,6 +30,32 @@ export function fetchUserWorks(id){
   }
 };
 
+export function createUser(data){
+  if ( data.avatar === '' ){
+    delete data["avatar"]
+    var new_data = data
+
+  } else {
+    var new_data = Object.assign({}, data, {avatar: data.avatar.base64})
+  };
+
+  return (dispatch) => {
+    return fetch(`http://localhost:4000/works`,{
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ "work": new_data })
+   })
+      .then(response => response.json())
+      .then(work => dispatch({ type: 'CREATE_WORK', payload: work }))
+      .catch(function(error) {
+      window.alert("Unable to create work; title, category and description can't be blank");
+    });
+  };
+};
+
 
 export function updateWork(data , id){
 
