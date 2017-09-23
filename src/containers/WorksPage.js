@@ -9,7 +9,7 @@ import CategoriesList from '../components/CategoriesList'
 
 const WorksPage = ({ match, works, work, categories }) => 
   <div>
-    < CategoriesLst categories={ categories }/>
+    < CategoriesList categories={ categories }/>
     <Switch>
       <Route exact path={`${match.url}/new`} component={ CreateWork } />
 
@@ -25,7 +25,7 @@ const mapStateToProps = (state) => {
   return {
     works: state.works.works,
     work: state.works.work,
-    categories: state.categories
+    categories: state.categories.categories
   };
 };
 

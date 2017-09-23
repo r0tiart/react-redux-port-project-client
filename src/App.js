@@ -12,6 +12,8 @@ import Login from './containers/Login';
 import { Link } from 'react-router-dom';
 import * as userActions from './actions/userActions.js';
 import * as workActions from './actions/workActions.js';
+import * as categoryActions from './actions/categoryActions.js';
+
 import { bindActionCreators } from 'redux';
 
 
@@ -20,7 +22,8 @@ export class App extends Component {
   componentWillUpdate(nextProps) {
      this.props.actions.fetchUsers();
      this.props.actions.fetchWorks();
-     this.props.actions.fetchUserWorks(nextProps.session_id)
+     this.props.actions.fetchUserWorks(nextProps.session_id);
+     this.props.actions.fetchCategories();
   };
 
   componentDidUpdate(){
@@ -65,7 +68,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {actions: bindActionCreators({...userActions, ...workActions}, dispatch)};
+  return {actions: bindActionCreators({...userActions, ...workActions, ...categoryActions}, dispatch)};
 };
 
 const WrapperApp = connect(mapStateToProps, mapDispatchToProps)(App);
