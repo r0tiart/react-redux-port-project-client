@@ -28,7 +28,7 @@ class UserWorksShow extends Component {
   	handleOnSubmit = event => {
 		event.preventDefault();
 		this.props.actions.updateWork(this.state, this.props.work.id);
-		this.props.history.push('/works')
+		this.props.history.push('/users/profile')
 	}
 
 	handleOnChange = event => {
@@ -51,7 +51,7 @@ class UserWorksShow extends Component {
 
         <img src={ work.avatar_full_url } alt='Work avatar' /><br/>
 
-    		<div>
+    		  <div>
 	          <h5>Upload Image</h5>
 	          <FileBase64
 	            multiple={ false }
