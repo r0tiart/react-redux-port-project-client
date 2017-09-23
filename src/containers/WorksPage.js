@@ -23,7 +23,8 @@ const mapStateToProps = (state) => {
   return {
     user_id: state.users.user.id,
     works: state.works.works,
-    work: state.works.work
+    work: state.works.work,
+    categories: state.categories
   };
 };
 
