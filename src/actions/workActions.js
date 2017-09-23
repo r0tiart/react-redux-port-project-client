@@ -30,7 +30,7 @@ export function fetchUserWorks(id){
   }
 };
 
-export function createUser(data){
+export function createWork(data){
   if ( data.avatar === '' ){
     delete data["avatar"]
     var new_data = data

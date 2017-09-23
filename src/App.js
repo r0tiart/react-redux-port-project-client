@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import * as userActions from './actions/userActions.js';
 import * as workActions from './actions/workActions.js';
 import { bindActionCreators } from 'redux';
+import CreateWork from './containers/WorksNew'
 
 
 export class App extends Component {
@@ -36,6 +37,7 @@ export class App extends Component {
             <Route exact path="/" render={() => <div>Home</div>} />
             <Route path='/works' component={WorksPage} />
             <Route path='/users' component={UsersPage} />
+            <Route path ='/works/new' component={CreateWork} />
           </div>
         </Router>
       );
