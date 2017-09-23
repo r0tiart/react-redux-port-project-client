@@ -30,14 +30,17 @@ export function fetchUserWorks(id){
   }
 };
 
-export function createWork(data){
+export function createWork(data, id){
+  var new_data = ''
+
   if ( data.avatar === '' ){
     delete data["avatar"]
-    var new_data = data
+     new_data = data
 
   } else {
-    var new_data = Object.assign({}, data, {avatar: data.avatar.base64})
+     new_data = Object.assign({}, data, {avatar: data.avatar.base64})
   };
+  debugger;
 
   return (dispatch) => {
     return fetch(`http://localhost:4000/works`,{
@@ -46,7 +49,7 @@ export function createWork(data){
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ "work": new_data })
+      body: JSON.stringify({ "work": new_data, "uid": id })
    })
       .then(response => response.json())
       .then(work => dispatch({ type: 'CREATE_WORK', payload: work }))
@@ -58,13 +61,13 @@ export function createWork(data){
 
 
 export function updateWork(data , id){
-
+  var new_data = ''
   if ( data.avatar === '' ){
     delete data["avatar"]
-    var new_data = data
+     new_data = data
 
   } else {
-    var new_data = Object.assign({}, data, {avatar: data.avatar.base64})
+     new_data = Object.assign({}, data, {avatar: data.avatar.base64})
   };
 
   return (dispatch) => {

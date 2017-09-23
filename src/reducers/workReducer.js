@@ -16,7 +16,11 @@ export default function worksReducer(state = { loading: false, works: [], work: 
       return state;
 
     case 'CREATE_WORK':
-      debugger;
+      if ( action.payload.show_attribute ){
+        return Object.assign({}, state, { loading: false, works: state.works.concat(action.payload) ,userWorks: state.userWorks.concat(action.payload) })
+      } else {
+      return Object.assign({}, state, { loading: false, userWorks: state.userWorks.concat(action.payload) })
+      };
     default:
       return state;
   }
