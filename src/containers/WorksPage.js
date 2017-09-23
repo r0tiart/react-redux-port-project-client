@@ -4,10 +4,12 @@ import { Route, Switch } from 'react-router-dom';
 import WorksLists from '../components/WorksList';
 import WorkShow from './WorkShow'
 import CreateWork from './WorksNew'
+import CategoriesList from '../components/CategoriesList'
 
 
-const WorksPage = ({ match, works, work, user_id }) => 
+const WorksPage = ({ match, works, work, categories }) => 
   <div>
+    < CategoriesLst categories={ categories }/>
     <Switch>
       <Route exact path={`${match.url}/new`} component={ CreateWork } />
 
@@ -21,7 +23,6 @@ const WorksPage = ({ match, works, work, user_id }) =>
 
 const mapStateToProps = (state) => {
   return {
-    user_id: state.users.user.id,
     works: state.works.works,
     work: state.works.work,
     categories: state.categories
