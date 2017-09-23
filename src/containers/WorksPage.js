@@ -5,15 +5,19 @@ import WorksLists from '../components/WorksList';
 import WorkShow from './WorkShow'
 import CreateWork from './WorksNew'
 import CategoriesList from '../components/CategoriesList'
+import CategoryPage from './CategoryPage'
 
 
 const WorksPage = ({ match, works, work, categories }) => 
   <div>
     < CategoriesList categories={ categories }/>
     <Switch>
+      <Route exact path={`${match.url}/category/:categoryId`} component={ CategoryPage } />
+      )}/>
+
       <Route exact path={`${match.url}/new`} component={ CreateWork } />
 
-      <Route path={`${match.url}/:workId`} component={ WorkShow } />
+      <Route exact path={`${match.url}/:workId`} component={ WorkShow } />
 
       <Route exact path={ match.url } render={() => (
           <WorksLists works={ works } />

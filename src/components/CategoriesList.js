@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const CategoriesList = ({ categories }) => {
   const renderCategories = categories.map(category => 
-    <Link style={{ marginRight: '12px' }}  key={ category.id } to={ `/categories/${ category.id }` }>{ category.name }</Link>
+    <Link style={{ marginRight: '12px' }}  key={ category.id } to={ `/works/category/${ category.id }` }>{ category.name }</Link>
   );
   
   return (
