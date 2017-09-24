@@ -1,5 +1,22 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+This is the Client side APP.
+
+The API can be found here: https://github.com/r0tiart/react-redux-port-project-api/blob/master/README.md
+
+There are a couple dependecies utilized:
+    bootstrap": "^3.3.7",
+    react": "^15.6.1",
+    react-bootstrap": "^0.31.3",
+    react-bootstrap-validation": "^0.1.11",
+    react-dom": "^15.6.1",
+    react-redux": "^5.0.6",
+    react-router-dom": "^4.2.2",
+    react-scripts": "1.0.13",
+    redux": "^3.7.2",
+    redux-thunk": "^2.2.0",
+    FileBase64
+
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
