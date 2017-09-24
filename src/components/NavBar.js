@@ -1,34 +1,43 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import {  Button } from 'react-bootstrap'
 
 const NavBar = props => {
   return (
     <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px' }}>
-      <NavLink 
-        style={{ marginRight: '10px' }} 
-        to="/"
-      >
-        Home
-      </NavLink>
-      <NavLink 
-        style={{ marginRight: '10px' }} 
-        to="/users"
-      >
-        Users
-      </NavLink>
-      <NavLink 
-        style={{ marginRight: '10px' }} 
-        to="/users/profile"
-      >
-        Profile
-      </NavLink>
-      <NavLink 
-        style={{ marginRight: '10px' }} 
-        to="/works"
-      >
-        Works
-      </NavLink>
-    </div>
+      <Button bsStyle="default" bsSize="large" active>
+        <NavLink 
+          style={{ marginRight: '10px' }} 
+          to="/"
+        >
+          Home
+        </NavLink>
+      </Button>
+      <Button bsStyle="default" bsSize="large" active>
+        <NavLink 
+          style={{ marginRight: '10px' }} 
+          to="/users"
+        >
+          Users
+        </NavLink>
+      </Button>
+      <Button bsStyle="default" bsSize="large" active>
+        <NavLink 
+          style={{ marginRight: '10px' }} 
+          to="/users/profile"
+        >
+          Profile
+        </NavLink>
+      </Button>   
+      <Button bsStyle="default" bsSize="large" active>
+        <NavLink 
+          style={{ marginRight: '10px' }} 
+          to="/works"
+        >
+          Works
+        </NavLink>
+      </Button>
+    </div>   
   );
 };
 

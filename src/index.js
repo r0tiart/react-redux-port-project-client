@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 import rootReducer from './reducers/index'
 import  WrapperApp  from './App'
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css'
 
  const store = createStore(
     rootReducer,
