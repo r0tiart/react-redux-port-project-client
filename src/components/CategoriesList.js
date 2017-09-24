@@ -7,7 +7,7 @@ const CategoriesList = ({ categories }) => {
   );
   
   return (
-    <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px' }} >
+    <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px', textAlign: 'center' }} >
       { renderCategories }
     </div>
   );

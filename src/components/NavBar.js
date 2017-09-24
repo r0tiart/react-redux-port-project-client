@@ -4,8 +4,8 @@ import {  Button } from 'react-bootstrap'
 
 const NavBar = props => {
   return (
-    <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px' }}>
-      <Button bsStyle="default" bsSize="large" active>
+    <div style={{ borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px', marginLeft: '12px', marginRight: '10px'}}>
+      <Button bsStyle="default" bsSize="small" active>
         <NavLink 
           style={{ marginRight: '10px' }} 
           to="/"
@@ -13,7 +13,7 @@ const NavBar = props => {
           Home
         </NavLink>
       </Button>
-      <Button bsStyle="default" bsSize="large" active>
+      <Button bsStyle="default" bsSize="small" active>
         <NavLink 
           style={{ marginRight: '10px' }} 
           to="/users"
@@ -21,7 +21,7 @@ const NavBar = props => {
           Users
         </NavLink>
       </Button>
-      <Button bsStyle="default" bsSize="large" active>
+      <Button bsStyle="default" bsSize="small" active>
         <NavLink 
           style={{ marginRight: '10px' }} 
           to="/users/profile"
@@ -29,7 +29,7 @@ const NavBar = props => {
           Profile
         </NavLink>
       </Button>   
-      <Button bsStyle="default" bsSize="large" active>
+      <Button bsStyle="default" bsSize="small" active>
         <NavLink 
           style={{ marginRight: '10px' }} 
           to="/works"

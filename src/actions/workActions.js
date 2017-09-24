@@ -40,7 +40,7 @@ export function createWork(data, id){
   } else {
      new_data = Object.assign({}, data, {avatar: data.avatar.base64})
   };
-  debugger;
+
 
   return (dispatch) => {
     return fetch(`http://localhost:4000/works`,{
@@ -69,6 +69,7 @@ export function updateWork(data , id){
   } else {
      new_data = Object.assign({}, data, {avatar: data.avatar.base64})
   };
+
 
   return (dispatch) => {
     return fetch(`http://localhost:4000/works/${id}`,{

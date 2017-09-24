@@ -11,7 +11,8 @@ class UserShow extends Component {
 
 		return(
 		  <div>
-		    <h3>Username: { user.username }</h3>
+		    <h3 style={{ textAlign: 'center' }}><u>Username: { user.username } </u></h3>
+		    <h4 style={{ textAlign: 'left', marginLeft: '12px' }}> Works: </h4>
 		    <WorksList works={ works } />
 		  </div>	
 		);

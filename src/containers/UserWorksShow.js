@@ -40,34 +40,36 @@ class UserWorksShow extends Component {
   	}
 
 	render(){
-		const { user, work } = this.props;
+		const { user, work, category } = this.props;
 		return(
 		  <div>
-		    <h3>Username: { user.username }</h3>
-		     <h3>Title: { work.title }</h3>
+        <div style={{ textAlign: 'center' }} >
+  		    <h3><u>Username: { user.username }</u></h3>
+  		     <h3><u>Title: { work.title }</u></h3>
 
-   			<p>Description: { work.description } </p>
-    		<span>Category: { work.category } </span>
+          <img src={ work.avatar_full_url } alt='Work avatar' /><br/>
 
-        <img src={ work.avatar_full_url } alt='Work avatar' /><br/>
+          <p>Description: { work.description } </p>
+          <span>Category: { category.name } </span>
+        </div>
 
-    		  <div>
-	          <h5>Upload Image</h5>
-	          <FileBase64
-	            multiple={ false }
-	            onDone={ this.onDrop.bind(this) } />
-        	</div>
+    		<div style={{ textAlign: 'left', marginLeft: '12px', marginRight: '12px'}}>
+          <h5>Upload Image</h5>
+          <FileBase64
+            multiple={ false }
+            onDone={ this.onDrop.bind(this) } />
+        </div>
 
-        	<form style={{ marginTop: '16px' }} id="updateUserWork" onSubmit={ this.handleOnSubmit.bind(this) }>
-	          <label>Title</label>
-	          <input  type="text" className="title" placeholder={work.title} onChange={ this.handleOnChange.bind(this) } />
-	          <label>Description</label>	      
-
+        <div style={{ marginTop: '16px', textAlign: 'left', marginLeft: '12px', marginRight: '12px' }} >
+          <h4>Edit Work</h4>
+        	<form  id="updateUserWork" onSubmit={ this.handleOnSubmit.bind(this) }>
+	          <label>Title</label><br/>
+	          <input  type="text" className="title" placeholder={work.title} onChange={ this.handleOnChange.bind(this) } /><br/>
+	          <label>Description</label><br/>
+            <textarea className="description" form="updateUserWork" onChange={ this.handleOnChange.bind(this) } defaultValue={ work.description } ></textarea><br/>
 	          <input type="submit" value="Update Work" />
         	</form>
-        	<div>
-        		<textarea className="description" form="updateUserWork" onChange={ this.handleOnChange.bind(this) } defaultValue={ work.description } ></textarea>
-        	</div>
+        </div>
 		  </div>	
 		);
 	};
@@ -77,11 +79,12 @@ class UserWorksShow extends Component {
 function mapStateToProps(state, ownProps) {
   const user = state.users.users.find(user => user.id == ownProps.match.params.userId)
   const work = state.works.userWorks.find( work => work.id == ownProps.match.params.workId)
+  const category = state.categories.categories.filter( category => category.id == work.category_id )[0]
 
   if (user) {
-    return { user, work }
+    return { user, work, category }
   } else {
-    return { user: {}, work }
+    return { user: {}, work, category }
   };
 };
 

@@ -46,7 +46,7 @@ export class App extends Component {
     } else {
       return(
         <Router>
-          <div>
+          <div style={{ textAlign: 'center'}}>
             <h1>Welcome!</h1>
             <div>
               <p>Please login or sign up </p>

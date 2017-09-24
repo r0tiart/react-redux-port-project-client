@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser }  from '../actions/userActions';
 import { bindActionCreators } from 'redux';
-
+import { Jumbotron } from 'react-bootstrap';
 
 class Login extends Component {
   constructor(props) {
@@ -31,15 +31,17 @@ class Login extends Component {
 
   render(){
     return(
-      <div>
-        <h4>Login!</h4>
-        <form style={{ marginTop: '16px' }} onSubmit={ this.handleOnSubmit.bind(this) }>
-          <label>Username</label>
-          <input  type="text" className="username" placeholder="Username" onChange={ this.handleOnChange.bind(this) } />
-          <label>Password</label>
-          <input type="password" className="password" onChange={ this.handleOnChange.bind(this) } />
-          <input type="submit" value="Login" />
-        </form>
+      <div style={{ textAlign: 'center', marginLeft: '12px', marginRight: '12px'}}>
+        <Jumbotron>
+          <h4>Login!</h4>
+          <form style={{ marginTop: '16px' }} onSubmit={ this.handleOnSubmit.bind(this) }>
+            <label>Username</label>
+            <input  type="text" className="username" placeholder="Username" onChange={ this.handleOnChange.bind(this) } />
+            <label>Password</label>
+            <input type="password" className="password" onChange={ this.handleOnChange.bind(this) } />
+            <input type="submit" value="Login" />
+          </form>
+        </Jumbotron>
       </div>
   
   )}
