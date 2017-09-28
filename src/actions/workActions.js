@@ -62,14 +62,13 @@ export function createWork(data, id){
 
 export function updateWork(data , id){
   var new_data = ''
-  if ( data.avatar === '' ){
+  if ( data.avatar === '' || !data.avatar ){
     delete data["avatar"]
      new_data = data
 
   } else {
      new_data = Object.assign({}, data, {avatar: data.avatar.base64})
   };
-
 
   return (dispatch) => {
     return fetch(`http://localhost:4000/works/${id}`,{

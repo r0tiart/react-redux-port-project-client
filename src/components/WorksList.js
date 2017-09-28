@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { ListGroup, ListGroupItem } from 'react-bootstrap'
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import { updateWork }  from '../actions/workActions';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 
 
-export default class WorksLists extends Component {
+class WorksLists extends Component {
 
 	constructor(props) {		
 		super(props)
 
 		var states = {};
 
-		this.props.works.forEach( function(element) {		
-			states[`number_${element.id}`] = 0
+		this.props.works.forEach( function(work) {		
+			states[`number_${work.id}`] = work.vote_count
 		})
 
 		this.state = states
-		console.log(this.state)
 	}
 
 
 
 	handleClick = (event) => {
-				
+	
 	  this.setState({
         [event.target.id]: this.state[event.target.id] + 1       
       });
+
+
+      this.props.actions.updateWork( { vote_count: this.state[event.target.id] + 1 } , parseInt( event.target.id.split("_").pop() ) );
 	}
 
 	
@@ -62,4 +67,11 @@ export default class WorksLists extends Component {
 		);
 	}  
 };
+
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators({ updateWork }, dispatch)};
+};
+
+export default connect(null, mapDispatchToProps)(WorksLists);
+
 
