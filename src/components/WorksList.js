@@ -29,7 +29,6 @@ class WorksLists extends Component {
         [event.target.id]: this.state[event.target.id] + 1       
       });
 
-
       this.props.actions.updateWork( { vote_count: this.state[event.target.id] + 1 } , parseInt( event.target.id.split("_").pop() ) );
 	}
 

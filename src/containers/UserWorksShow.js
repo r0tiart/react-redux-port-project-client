@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import WorksList from '../components/WorksList'
+// import WorksList from '../components/WorksList'
 import FileBase64 from 'react-file-base64';
 import { updateWork }  from '../actions/workActions';
 import { bindActionCreators } from 'redux';
@@ -85,7 +85,7 @@ function mapStateToProps(state, ownProps) {
     return { user, work, category }
   } else {
     return { user: {}, work, category }
-  };
+  }
 };
 
 function mapDispatchToProps(dispatch) {
