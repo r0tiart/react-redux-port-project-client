@@ -51,7 +51,7 @@ class CreateWork extends Component {
       <div key={ category.id }  >
         <label htmlFor={ `category_${category.id}` }>{category.name}</label>
 
-        <input type="radio" id={ `category_${category.id}` } className="category_id" name={ `category_${category.id}` }
+        <input type="radio" id={ `category_${category.id}` } className="category_id" name='category'
          value={category.id} onClick={ this.handleClick.bind(this) }/>
       </div>
       

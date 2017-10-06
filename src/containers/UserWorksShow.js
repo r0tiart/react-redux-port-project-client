@@ -37,7 +37,14 @@ class UserWorksShow extends Component {
         [event.target.className]: event.target.value        
       });
       
-  	}
+  }
+
+  
+  handleClick = event => {
+    this.setState({
+      [event.target.className]: event.target.value        
+    });
+  }
 
 	render(){
 		const { user, work, category } = this.props;
@@ -67,6 +74,19 @@ class UserWorksShow extends Component {
 	          <input  type="text" className="title" placeholder={work.title} onChange={ this.handleOnChange.bind(this) } /><br/>
 	          <label>Description</label><br/>
             <textarea className="description" form="updateUserWork" onChange={ this.handleOnChange.bind(this) } defaultValue={ work.description } ></textarea><br/>
+
+            <div>
+
+              <h5> Make this viewable to public? </h5>
+              <input type="radio" className="show_attribute" id="show_attribute_true" onClick={ this.handleClick.bind(this) }
+                name="show_attribute" value="true" checked={ work.show_attribute } />
+              <label htmlFor="show_attribute_true" >Yes</label>{' '}
+
+              <input type="radio" className="show_attribute" id="show_attribute_false" onClick={ this.handleClick.bind(this) }
+                name="show_attribute" value="false" checked={ work.show_attribute }  />
+              <label htmlFor="show_attribute_false" >No</label>{' '}
+
+            </div>
 	          <input type="submit" value="Update Work" />
         	</form>
         </div>
