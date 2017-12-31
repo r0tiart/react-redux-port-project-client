@@ -12,6 +12,7 @@ class UserWorksShow extends Component {
 	    this.state = {
 	      title: this.props.work.title,
 	      description: this.props.work.description,
+        show_attribute: this.props.work.show_attribute,
 	      avatar: ''
 	    };
 
@@ -79,12 +80,13 @@ class UserWorksShow extends Component {
 
               <h5> Make this viewable to public? </h5>
               <input type="radio" className="show_attribute" id="show_attribute_true" onClick={ this.handleClick.bind(this) }
-                name="show_attribute" value="true" checked={ work.show_attribute } />
+                name="show_attribute" value="true" checked={ work.show_attribute == true } />
               <label htmlFor="show_attribute_true" >Yes</label>{' '}
 
               <input type="radio" className="show_attribute" id="show_attribute_false" onClick={ this.handleClick.bind(this) }
-                name="show_attribute" value="false" checked={ work.show_attribute }  />
+                name="show_attribute" value="false" checked={ work.show_attribute == false  }  />
               <label htmlFor="show_attribute_false" >No</label>{' '}
+
 
             </div>
 	          <input type="submit" value="Update Work" />
