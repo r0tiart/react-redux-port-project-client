@@ -66,6 +66,14 @@ class CreateWork extends Component {
             multiple={ false }
             onDone={ this.onDrop.bind(this) } />
         </div>
+
+        <div>
+          <h4>Upload Pattern</h4>
+          <FileBase64 
+            multiple={false}
+            />
+        </div>
+
         <form style={{ marginTop: '16px' }} id="updateUserWork" onSubmit={ this.handleOnSubmit.bind(this) }>
             <label>Title</label>{' '}
             <input  type="text" className="title" placeholder="work title" onChange={ this.handleOnChange.bind(this) } />

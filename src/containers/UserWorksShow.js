@@ -60,6 +60,8 @@ class UserWorksShow extends Component {
 
           <p>Description: { work.description } </p>
           <span>Category: { category.name } </span>
+
+          <p> Pattern Place Holder </p>
         </div>
 
     		<div style={{ textAlign: 'left', marginLeft: '12px', marginRight: '12px'}}>
