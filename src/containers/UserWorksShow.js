@@ -49,6 +49,7 @@ class UserWorksShow extends Component {
 
 	render(){
 		const { user, work, category } = this.props;
+
 		return(
 		  <div>
         <div style={{ textAlign: 'center' }} >
@@ -80,11 +81,11 @@ class UserWorksShow extends Component {
 
               <h5> Make this viewable to public? </h5>
               <input type="radio" className="show_attribute" id="show_attribute_true" onClick={ this.handleClick.bind(this) }
-                name="show_attribute" value="true" checked={ work.show_attribute == true } />
+                name="show_attribute" value="true" defaultChecked={ work.show_attribute === true} />
               <label htmlFor="show_attribute_true" >Yes</label>{' '}
 
               <input type="radio" className="show_attribute" id="show_attribute_false" onClick={ this.handleClick.bind(this) }
-                name="show_attribute" value="false" checked={ work.show_attribute == false  }  />
+                name="show_attribute" value="false" defaultChecked={ work.show_attribute === false  }  />
               <label htmlFor="show_attribute_false" >No</label>{' '}
 
 
