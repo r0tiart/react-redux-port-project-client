@@ -13,11 +13,11 @@ class UserWorksShow extends Component {
 	      title: this.props.work.title,
 	      description: this.props.work.description,
         show_attribute: this.props.work.show_attribute,
-	      avatar: ''
+	      avatar: '',
+        pattern: ''
 	    };
 
     this.onDrop = this.onDrop.bind(this);
-
   }
 
     onDrop(picture) {
@@ -27,7 +27,9 @@ class UserWorksShow extends Component {
     }
 
     uploadPattern(pattern){
-      debugger;
+      this.setState({
+        pattern: pattern
+      })
     }
 
   	handleOnSubmit = event => {

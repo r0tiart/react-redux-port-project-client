@@ -41,6 +41,13 @@ export function createWork(data, id){
      new_data = Object.assign({}, data, {avatar: data.avatar.base64})
   };
 
+  if ( data.pattern === '' ){
+    delete data["pattern"]
+    new_data = data 
+  } else {
+    new_data = Object.assign({}, data, {pattern: data.pattern.base64})
+  }
+
 
   return (dispatch) => {
     return fetch(`http://localhost:4000/works`,{
@@ -70,6 +77,12 @@ export function updateWork(data , id){
      new_data = Object.assign({}, data, {avatar: data.avatar.base64})
   };
 
+  if ( data.pattern === '' ){
+    delete data["pattern"]
+    new_data = data 
+  } else {
+    new_data = Object.assign({}, data, {pattern: data.pattern.base64})
+  }
 
   return (dispatch) => {
     return fetch(`http://localhost:4000/works/${id}`,{
