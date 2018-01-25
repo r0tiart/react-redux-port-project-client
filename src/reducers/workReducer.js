@@ -13,9 +13,11 @@ export default function worksReducer(state = { loading: false, works: [], work: 
       state.works[works_index] = action.payload
       state.userWorks[user_works_index] = action.payload
 
+
       return state;
 
     case 'CREATE_WORK':
+    debugger;
       if ( action.payload.show_attribute ){
         return Object.assign({}, state, { loading: false, works: state.works.concat(action.payload) ,userWorks: state.userWorks.concat(action.payload) })
       } else {

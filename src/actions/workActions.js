@@ -81,6 +81,8 @@ export function updateWork(data , id){
       body: JSON.stringify({ "work": new_data })
    })
       .then(response => response.json())
-      .then( work => dispatch( { type: 'UPDATE_WORK', payload: work }))
+      .then( work => dispatch({ type: 'UPDATE_WORK', payload: work }))
+      .then( work => dispatch(fetchWorks))    
+
   }
 };
