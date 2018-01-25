@@ -82,7 +82,7 @@ export function updateWork(data , id){
    })
       .then(response => response.json())
       .then( work => dispatch({ type: 'UPDATE_WORK', payload: work }))
-      .then( work => dispatch(fetchWorks))    
+      .then( work => dispatch(fetchWorks()))    
 
   }
 };
