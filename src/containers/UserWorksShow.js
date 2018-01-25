@@ -26,6 +26,10 @@ class UserWorksShow extends Component {
         });
     }
 
+    uploadPattern(pattern){
+      debugger;
+    }
+
   	handleOnSubmit = event => {
 		event.preventDefault();
 		this.props.actions.updateWork(this.state, this.props.work.id);
@@ -69,6 +73,13 @@ class UserWorksShow extends Component {
           <FileBase64
             multiple={ false }
             onDone={ this.onDrop.bind(this) } />
+        </div>
+
+        <div style={{ textAlign: 'left', marginLeft: '12px', marginRight: '12px'}}>
+          <h5>Upload Pattern</h5>
+          <FileBase64
+            multiple={ false }
+            onDone={ this.uploadPattern.bind(this) } />
         </div>
 
         <div style={{ marginTop: '16px', textAlign: 'left', marginLeft: '12px', marginRight: '12px' }} >
