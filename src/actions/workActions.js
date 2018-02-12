@@ -81,6 +81,7 @@ export function updateWork(data , id){
     delete data["pattern"]
     new_data = data 
   } else {
+
     new_data = Object.assign({}, data, {pattern: data.pattern.base64})
   }
 

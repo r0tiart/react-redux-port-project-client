@@ -18,21 +18,22 @@ class UserWorksShow extends Component {
 	    };
 
     this.onDrop = this.onDrop.bind(this);
+    this.uploadPattern = this.uploadPattern.bind(this);
   }
 
-    onDrop(picture) {
+  onDrop(picture) {
         this.setState({
             avatar: picture,
         });
-    }
+  }
 
-    uploadPattern(pattern){
+  uploadPattern(pattern){
       this.setState({
         pattern: pattern
       })
-    }
+  }
 
-  	handleOnSubmit = event => {
+  handleOnSubmit = event => {
 		event.preventDefault();
 		this.props.actions.updateWork(this.state, this.props.work.id);
 		this.props.history.push('/users/profile')
